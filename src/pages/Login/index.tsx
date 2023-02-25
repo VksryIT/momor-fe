@@ -6,7 +6,7 @@ const Login: FC = () => {
   return (
     <>
       <div className="header">
-        <span className="logo">NMCFE</span>
+        <span className="logo">MOMOR</span>
       </div>
 
       <div className="login_wrap">
