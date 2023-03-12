@@ -25,3 +25,6 @@ yarn-error.log*
 # https
 localhost.pem
 localhost-key.pem
+
+# env
+.env
