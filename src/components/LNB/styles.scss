@@ -1,0 +1,21 @@
+.lnb {
+  background-color: #575a67;
+  color: #ffffff;
+  float: left;
+  width: 220px;
+
+  .menu {
+    .menu_item {
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      line-height: 17px;
+      padding: 6px 15px 7px 40px;
+
+      &.click {
+        background-color: #41444e;
+      }
+    }
+  }
+}
