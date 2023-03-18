@@ -22,6 +22,7 @@ const Login: FC = () => {
   const {
     control,
     formState: { isValid },
+    handleSubmit,
     register,
     reset,
   } = useForm<LoginData>({
@@ -71,57 +72,56 @@ const Login: FC = () => {
           </li>
         </ul>
 
-        <div className="form_wrap">
-          <div className="id_pw_wrap">
-            <div className="input_row">
-              <BiUser
-                className={classNames({
+        <form onSubmit={handleSubmit(login)}>
+          <div className="form_wrap">
+            <div className="id_pw_wrap">
+              <div
+                className={classNames('input_row', {
                   focused: focusedField === FocusedField.USERNAME,
                 })}
-              />
-              <input
-                {...register('username', {
-                  required: true,
-                })}
-                type="text"
-                className={classNames('input_text', {
-                  focused: focusedField === FocusedField.USERNAME,
-                })}
-                placeholder="아이디"
-                onClick={() => setFocusedField(FocusedField.USERNAME)}
-                onBlur={() => setFocusedField(FocusedField.NONE)}
-              />
-            </div>
-            <div className="input_row">
-              <SlLock
-                className={classNames({
+              >
+                <BiUser />
+                <input
+                  {...register('username', {
+                    required: true,
+                  })}
+                  type="text"
+                  className={'input_text'}
+                  placeholder="아이디"
+                  onFocus={() => setFocusedField(FocusedField.USERNAME)}
+                  onBlur={() => setFocusedField(FocusedField.NONE)}
+                />
+              </div>
+              <div
+                className={classNames('input_row', {
                   focused: focusedField === FocusedField.PASSWORD,
                 })}
-              />
-              <input
-                {...register('password', {
-                  required: true,
-                })}
-                type="text"
-                className={classNames('input_text', {
-                  focused: focusedField === FocusedField.PASSWORD,
-                })}
-                placeholder="비밀번호"
-                onClick={() => setFocusedField(FocusedField.PASSWORD)}
-                onBlur={() => setFocusedField(FocusedField.NONE)}
-              />
+              >
+                <SlLock />
+                <input
+                  {...register('password', {
+                    required: true,
+                  })}
+                  type="text"
+                  className={'input_text'}
+                  placeholder="비밀번호"
+                  onFocus={() => setFocusedField(FocusedField.PASSWORD)}
+                  onBlur={() => setFocusedField(FocusedField.NONE)}
+                />
+              </div>
             </div>
-          </div>
+            <input type="submit" hidden />
 
-          <div className="login_btn_wrap">
-            <Button className="login_btn" disabled={!isValid} onClick={login}>
-              <span className="btn_text">로그인</span>
-            </Button>
-            <Button className="login_btn" disabled={!isValid} onClick={signup}>
-              <span className="btn_text">회원가입</span>
-            </Button>
+            <div className="login_btn_wrap">
+              <Button className="login_btn" disabled={!isValid} onClick={login}>
+                <span className="btn_text">로그인</span>
+              </Button>
+              <Button className="login_btn" disabled={!isValid} onClick={signup}>
+                <span className="btn_text">회원가입</span>
+              </Button>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

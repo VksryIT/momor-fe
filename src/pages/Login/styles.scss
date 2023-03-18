@@ -98,11 +98,17 @@
             margin-left: 8px;
             padding-right: 30px;
           }
+        }
 
-          svg.focused {
+        .input_row.focused {
+          border: solid 1px $iris-color;
+          position: relative;
+          z-index: 10;
+
+          svg {
             color: $iris-color;
           }
-          .input_text.focused {
+          .input_text {
             color: #222222;
           }
         }
