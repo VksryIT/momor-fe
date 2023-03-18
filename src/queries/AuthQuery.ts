@@ -49,3 +49,11 @@ export const useLogin = (reset: UseFormReset<LoginData>) => {
     }),
   });
 };
+
+export const useLogout = () => {
+  const mutate = () => {
+    return authAPI.logout();
+  };
+
+  return useMutation(mutate);
+};

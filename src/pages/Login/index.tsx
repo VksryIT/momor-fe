@@ -36,12 +36,12 @@ const Login: FC = () => {
   const loginMutation = useLogin(reset);
   const signupMutation = useSignup(reset);
 
-  const login = () => {
-    loginMutation.mutate({ username, password });
+  const login = async () => {
+    await loginMutation.mutateAsync({ username, password });
   };
 
   const signup = async () => {
-    signupMutation.mutate({ username, password });
+    await signupMutation.mutateAsync({ username, password });
   };
 
   return (

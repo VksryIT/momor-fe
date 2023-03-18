@@ -1,0 +1,56 @@
+@import '/src/styles/colors.scss';
+
+.gnb {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 55px;
+  box-shadow: 0 1px 5px 0 rgba(107, 119, 172, 0.2);
+  position: relative;
+
+  .logo {
+    display: inline-block;
+    color: $iris-color;
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    text-align: center;
+    margin-left: 20px;
+  }
+
+  .user {
+    color: #666666;
+    cursor: pointer;
+    margin-right: 20px;
+    padding: 7px;
+
+    svg {
+      margin-left: 4px;
+      width: 0.7em;
+    }
+  }
+
+  .user_tooltip {
+    background-color: #ffffff;
+    border: solid 1px #efefef;
+    border-radius: 7px;
+    box-shadow: 0 1px 5px 0 rgba(107, 119, 172, 0.2);
+    color: #444444;
+    padding: 10px 20px;
+
+    position: absolute;
+    top: 44px;
+    right: 10px;
+    z-index: 10;
+
+    button {
+      background-color: #ffffff;
+      border: solid 1px #efefef;
+      border-radius: 4px;
+      color: #444444;
+      padding: 6px 10px;
+    }
+  }
+}
