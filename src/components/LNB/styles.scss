@@ -1,6 +1,8 @@
+@import '/src/styles/colors.scss';
+
 .lnb {
   background-color: #575a67;
-  color: #ffffff;
+  color: $white;
   float: left;
   width: 220px;
 

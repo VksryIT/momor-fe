@@ -7,7 +7,7 @@
 
     .logo {
       display: inline-block;
-      color: $iris-color;
+      color: $iris;
       font-size: 40px;
       font-weight: 900;
       letter-spacing: -1.5px;
@@ -45,7 +45,7 @@
 
       .on {
         display: block;
-        background-color: #ffffff;
+        background-color: $white;
         border: 1px solid #c6c6c6;
         border-radius: 6px 0 0 0;
         border-bottom: 0;
@@ -53,7 +53,7 @@
         z-index: 5;
 
         svg {
-          color: $iris-color;
+          color: $iris;
         }
 
         .text {
@@ -69,7 +69,7 @@
     .form_wrap {
       border: solid 1px #c6c6c6;
       border-radius: 6px;
-      background-color: #ffffff;
+      background-color: $white;
       width: 100%;
       margin-top: -8px;
       padding: 20px 28px;
@@ -101,12 +101,12 @@
         }
 
         .input_row.focused {
-          border: solid 1px $iris-color;
+          border: solid 1px $iris;
           position: relative;
           z-index: 10;
 
           svg {
-            color: $iris-color;
+            color: $iris;
           }
           .input_text {
             color: #222222;
@@ -134,13 +134,13 @@
           padding: 13px 0;
           border-radius: 6px;
           border: solid 1px rgba(0, 0, 0, 0.15);
-          background-color: $iris-color;
+          background-color: $iris;
 
           .btn_text {
             font-size: 20px;
             font-weight: 700;
             line-height: 20px;
-            color: #ffffff;
+            color: $white;
           }
         }
 
