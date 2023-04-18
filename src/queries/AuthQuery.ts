@@ -1,13 +1,13 @@
 import authAPI from 'api/auth';
-import { LoginData } from 'api/auth/types';
 import { onAPIError } from 'api/onAPIError';
 import { PageType } from 'App';
 import { UseFormReset } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+import { UserAuthData } from 'types/auth';
 
-export const useSignup = (reset: UseFormReset<LoginData>) => {
-  const mutate = (data: LoginData) => {
+export const useSignup = (reset: UseFormReset<UserAuthData>) => {
+  const mutate = (data: UserAuthData) => {
     return authAPI.signup(data);
   };
 
@@ -26,10 +26,10 @@ export const useSignup = (reset: UseFormReset<LoginData>) => {
   });
 };
 
-export const useLogin = (reset: UseFormReset<LoginData>) => {
+export const useLogin = (reset: UseFormReset<UserAuthData>) => {
   const navigate = useNavigate();
 
-  const mutate = (data: LoginData) => {
+  const mutate = (data: UserAuthData) => {
     return authAPI.login(data);
   };
 

@@ -1,13 +1,12 @@
 import API from 'api/API';
-
-import { LoginData } from './types';
+import { UserAuthData } from 'types/auth';
 
 class AuthAPI extends API {
-  async signup(data: LoginData) {
+  async signup(data: UserAuthData) {
     return this.post('/users', data, { withCredentials: false });
   }
 
-  async login(data: LoginData) {
+  async login(data: UserAuthData) {
     return this.post('/auth/login', data);
   }
 

@@ -1,6 +1,5 @@
 import './styles.scss';
 
-import { LoginData } from 'api/auth/types';
 import classNames from 'classnames';
 import Button from 'components/Button';
 import { useLogin, useSignup } from 'queries/AuthQuery';
@@ -11,6 +10,7 @@ import { Bs1Square } from 'react-icons/bs';
 import { IoIosLogIn } from 'react-icons/io';
 import { MdQrCode } from 'react-icons/md';
 import { SlLock } from 'react-icons/sl';
+import { UserAuthData } from 'types/auth';
 
 enum FocusedField {
   NONE = 'NONE',
@@ -25,13 +25,13 @@ const Login: FC = () => {
     handleSubmit,
     register,
     reset,
-  } = useForm<LoginData>({
+  } = useForm<UserAuthData>({
     defaultValues: {
       username: '',
       password: '',
     },
   });
-  const [username, password] = useWatch<LoginData>({ control, name: ['username', 'password'] });
+  const [username, password] = useWatch<UserAuthData>({ control, name: ['username', 'password'] });
   const [focusedField, setFocusedField] = useState<FocusedField>(FocusedField.NONE);
   const loginMutation = useLogin(reset);
   const signupMutation = useSignup(reset);
