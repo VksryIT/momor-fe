@@ -1,15 +1,14 @@
 import './styles.scss';
 
+import authAPI from 'api/auth';
 import { PageType } from 'App';
 import Button from 'components/Button';
-import { useLogout } from 'queries/AuthQuery';
 import React, { FC, useState } from 'react';
 import { AiFillCaretDown } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 
 const GNB: FC = () => {
   const navigate = useNavigate();
-  const logoutMutation = useLogout();
   const [openUserTooltip, setOpenUserTooltip] = useState<boolean>(false);
 
   return (
@@ -23,7 +22,7 @@ const GNB: FC = () => {
         <div className="user_tooltip">
           <Button
             onClick={async () => {
-              await logoutMutation.mutateAsync();
+              await authAPI.logout();
               navigate(PageType.LOGIN);
             }}
           >

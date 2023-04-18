@@ -1,8 +1,9 @@
 import './styles.scss';
 
+import authAPI from 'api/auth';
+import { PageType } from 'App';
 import classNames from 'classnames';
 import Button from 'components/Button';
-import { useLogin, useSignup } from 'queries/AuthQuery';
 import React, { FC, useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { BiUser } from 'react-icons/bi';
@@ -10,6 +11,7 @@ import { Bs1Square } from 'react-icons/bs';
 import { IoIosLogIn } from 'react-icons/io';
 import { MdQrCode } from 'react-icons/md';
 import { SlLock } from 'react-icons/sl';
+import { useNavigate } from 'react-router-dom';
 import { UserAuthData } from 'types/auth';
 
 enum FocusedField {
@@ -19,6 +21,7 @@ enum FocusedField {
 }
 
 const Login: FC = () => {
+  const navigate = useNavigate();
   const {
     control,
     formState: { isValid },
@@ -33,15 +36,18 @@ const Login: FC = () => {
   });
   const [username, password] = useWatch<UserAuthData>({ control, name: ['username', 'password'] });
   const [focusedField, setFocusedField] = useState<FocusedField>(FocusedField.NONE);
-  const loginMutation = useLogin(reset);
-  const signupMutation = useSignup(reset);
 
   const login = async () => {
-    await loginMutation.mutateAsync({ username, password });
+    await authAPI.login({ username, password }).then(() => {
+      navigate(PageType.MANAGE);
+    });
   };
 
   const signup = async () => {
-    await signupMutation.mutateAsync({ username, password });
+    await authAPI.signup({ username, password }).then(() => {
+      alert('회원가입이 완료되었습니다.');
+      reset({ password: '' });
+    });
   };
 
   return (
