@@ -1,0 +1,94 @@
+@import '/src/styles/colors.scss';
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  overflow: scroll;
+
+  tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  }
+
+  thead {
+    background-color: $bright-gray;
+    text-align: center;
+
+    th {
+      padding: 8px 0;
+    }
+
+    th + th {
+      border-left: 1px solid rgba(0, 0, 0, 0.07);
+    }
+  }
+
+  tbody {
+    td {
+      padding: 4px;
+    }
+
+    .account input {
+      padding: 8px;
+      width: 100%;
+
+      &:focus {
+        padding: 8px;
+        border: 1.5px solid $iris;
+      }
+    }
+
+    .btn-asset-types {
+      border: solid 2px $iris;
+      border-radius: 2px;
+      padding: 4px;
+      width: 120px;
+
+      text-align: left;
+    }
+
+    .btn-asset-types.eucalyptus {
+      border: solid 2px $eucalyptus;
+      color: $eucalyptus;
+    }
+
+    .btn-asset-types.turquoise {
+      border: solid 2px $turquoise;
+      color: $turquoise;
+    }
+
+    .btn-asset-types.green-yellow {
+      border: solid 2px $green-yellow;
+      color: $green-yellow;
+    }
+
+    .btn-asset-types.gray {
+      border: solid 2px $gray;
+      color: $gray;
+    }
+  }
+
+  .selection {
+    width: 40px;
+    text-align: center;
+  }
+
+  .account {
+    min-width: 225px;
+  }
+
+  .asset_type {
+    min-width: 143px;
+  }
+
+  .start_amount {
+    min-width: 179px;
+  }
+
+  .start_date {
+    min-width: 110px;
+  }
+
+  .use_status {
+    width: 64px;
+  }
+}
