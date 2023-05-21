@@ -1,0 +1,48 @@
+@import '/src/styles/colors.scss';
+
+.layer {
+  background-color: $white;
+  border: solid 1px $smoky-black;
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
+
+.btn-combo {
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    height: 6px;
+    width: 6px;
+    right: 6px;
+    top: 6px;
+    transform: rotate(45deg);
+  }
+}
+
+.ly-combo {
+  padding: 8px;
+  width: 160px;
+
+  .item {
+    cursor: pointer;
+    padding: 8px;
+
+    &:hover {
+      background-color: $lavender;
+      border-radius: 4px;
+    }
+  }
+
+  .item.selected {
+    color: $iris;
+    font-weight: 900;
+  }
+}
