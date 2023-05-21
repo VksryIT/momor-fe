@@ -1,25 +1,26 @@
 import './styles.scss';
 
 import classNames from 'classnames';
-import React, { FC, PropsWithChildren } from 'react';
+import React, { ButtonHTMLAttributes, ForwardedRef, forwardRef } from 'react';
 
-interface ButtonProps {
-  className?: string;
-  disabled?: boolean;
-  onClick?: () => void | Promise<void>;
-}
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button: FC<PropsWithChildren<ButtonProps>> = ({ className, disabled, onClick, children }) => {
+const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+  const { className, disabled, children, ...restProps } = props;
+
   return (
     <button
       type="button"
       className={classNames(className, { disabled })}
       disabled={disabled}
-      onClick={onClick}
+      ref={ref}
+      {...restProps}
     >
       {children}
     </button>
   );
-};
+});
+
+Button.displayName = 'Button';
 
 export default Button;
