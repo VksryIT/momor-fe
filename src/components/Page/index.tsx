@@ -1,3 +1,5 @@
+import './styles.scss';
+
 import GNB from 'components/GNB';
 import LNB from 'components/LNB';
 import React, { FC, ReactNode } from 'react';
